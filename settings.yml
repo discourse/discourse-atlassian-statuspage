@@ -1,0 +1,16 @@
+failed_status_test:
+  type: bool
+  default: false
+  description: "Turn on to test statusPage failure"
+failed_status_text:
+  type: string
+  default: "System is down!!"
+  description: "Message to display when status is down"
+status_endpoint:
+  type: string
+  default: ""
+  description: "The `.json` endpoint to make a call to for your sites statusPage. ex. 'https://status.yourWebsite.com/api/v2/status.json'"
+status_more_info_link:
+  type: string
+  default: ""
+  description: "Webpage to send users to upon clicking the 'Status Down' alert link."

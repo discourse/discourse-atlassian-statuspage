@@ -1,0 +1,14 @@
+.discourse-status-alert {
+  width: 85%;
+  background-color: var(--danger);
+  margin: 2em auto;
+  padding: 1em;
+  border-radius: 0.25em;
+  border: 1px solid rgba(var(--primary-rgb),0.25);
+  a {
+    color: var(--secondary);
+    font-weight: 600;
+    display: block;
+    text-align: center;
+  }
+}
