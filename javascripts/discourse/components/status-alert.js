@@ -11,7 +11,6 @@ export default Component.extend({
     this.set("statusHref", settings.status_more_info_link.replace(/http(s)*:\/\//g,""));
 
     if (settings.failed_status_test) {
-      console.log('should show')
       this.set("showStatus", true);
       this.set("statusText", settings.failed_status_text);
     } else {
@@ -20,7 +19,6 @@ export default Component.extend({
         .then(response => response.json())
         .then(data => {
           let { status } = data;
-          console.log(status)
           if (status.description !== "All Systems Operational" ) {
             this.set("statusText", settings.failed_status_text)
             this.set("showStatus", true)
