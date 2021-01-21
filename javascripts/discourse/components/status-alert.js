@@ -12,7 +12,7 @@ export default Component.extend({
 
     if (settings.failed_status_test) {
       this.set("showStatus", true);
-      this.set("statusText", settings.failed_status_text);
+      this.set("statusMessage", settings.failed_status_message);
     } else {
       try {
         fetch(API_ENDPOINT)
@@ -20,7 +20,7 @@ export default Component.extend({
         .then(data => {
           let { status } = data;
           if (status.description !== "All Systems Operational" ) {
-            this.set("statusText", settings.failed_status_text)
+            this.set("statusMessage", settings.failed_status_message)
             this.set("showStatus", true)
           }
         }); 

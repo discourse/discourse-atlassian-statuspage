@@ -2,7 +2,7 @@ failed_status_test:
   type: bool
   default: false
   description: "Turn on to test statusPage failure"
-failed_status_text:
+failed_status_message:
   type: string
   default: "System is down!!"
   description: "Message to display when status is down"

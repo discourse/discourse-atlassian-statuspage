@@ -1,8 +1,6 @@
 {
-  "name": "Discourse StatusPage",
+  "name": "Discourse Atlassian StatusPage",
   "about_url": null,
   "license_url": null,
-  "component": true,
-  "assets": {
-  }
+  "component": true
 }
