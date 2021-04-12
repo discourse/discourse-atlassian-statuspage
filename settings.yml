@@ -6,6 +6,14 @@ test_status_message:
   type: string
   default: "System is down!!"
   description: "Message to display when status is down"
+test_status_indicator:
+  type: enum
+  default: "minor"
+  choices:
+    - "minor"
+    - "major"
+    - "critical"
+  description: "Indiactor to use when testing statusPage failure."
 minor_status_message:
   type: string
   default: "System encountered a minor error!!"

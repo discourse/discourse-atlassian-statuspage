@@ -3,8 +3,11 @@
   &.indicator-minor {
     background-color: orange;
   }
-  &.indicator-major, &.indicator-critical {
-    background-color: var(--danger);
+  &.indicator-major {
+    background-color: #e45735;
+  }
+  &.indicator-critical {
+    background-color: #c63c1b;
   }
   margin: 2em auto;
   padding: 1em;

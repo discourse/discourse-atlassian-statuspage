@@ -17,6 +17,7 @@ export default Component.extend({
     if (settings.failed_status_test) {
       this.set("showStatus", true);
       this.set("statusMessage", settings.test_status_message);
+      this.set("indicator", settings.test_status_indicator)
     } else {
       try {
         fetch(API_ENDPOINT)
