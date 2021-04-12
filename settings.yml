@@ -2,10 +2,22 @@ failed_status_test:
   type: bool
   default: false
   description: "Turn on to test statusPage failure"
-failed_status_message:
+test_status_message:
   type: string
   default: "System is down!!"
   description: "Message to display when status is down"
+minor_status_message:
+  type: string
+  default: "System encountered a minor error!!"
+  description: "Message to display when status is down with a minor indicator."
+major_status_message:
+  type: string
+  default: "System encountered a major error!!"
+  description: "Message to display when status is down with a major indicator."
+critical_status_message:
+  type: string
+  default: "System encountered a critical error!!"
+  description: "Message to display when status is down with a critical indicator."
 status_endpoint:
   type: string
   default: ""
