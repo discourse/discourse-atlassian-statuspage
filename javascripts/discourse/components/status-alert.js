@@ -5,7 +5,7 @@ export default Component.extend({
   showStatus: null,
   statusText: null,
   statusHref: null,
-  inidcator: null,
+  indicator: null,
 
   init() {
     this._super(...arguments);
@@ -26,14 +26,14 @@ export default Component.extend({
             let { status } = data;
             if (status.description !== "All Systems Operational") {
               let statusMessage =
-                status.inidcator.toLowerCase() === "minor"
+                status.indicator.toLowerCase() === "minor"
                   ? settings.minor_status_message
                   : status.indicator.toLowerCase() === "major"
                   ? settings.major_status_message
                   : settings.critical_status_message;
 
               this.set("statusMessage", statusMessage);
-              this.set("indictor", status.inidcator.toLowerCase());
+              this.set("indictor", status.indicator.toLowerCase());
               this.set("showStatus", true);
             }
           });
