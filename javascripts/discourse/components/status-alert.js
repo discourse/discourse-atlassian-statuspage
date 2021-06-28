@@ -33,7 +33,7 @@ export default Component.extend({
                   : settings.critical_status_message;
 
               this.set("statusMessage", statusMessage);
-              this.set("indictor", status.indicator.toLowerCase());
+              this.set("indicator", status.indicator.toLowerCase());
               this.set("showStatus", true);
             }
           });
