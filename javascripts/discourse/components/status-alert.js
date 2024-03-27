@@ -17,12 +17,12 @@ export default Component.extend({
     if (settings.failed_status_test) {
       this.set("showStatus", true);
       this.set("statusMessage", settings.test_status_message);
-      this.set("indicator", settings.test_status_indicator)
+      this.set("indicator", settings.test_status_indicator);
     } else {
       try {
         fetch(API_ENDPOINT)
-          .then(response => response.json())
-          .then(data => {
+          .then((response) => response.json())
+          .then((data) => {
             let { status } = data;
             if (status.description !== "All Systems Operational") {
               let statusMessage =
@@ -38,8 +38,9 @@ export default Component.extend({
             }
           });
       } catch (error) {
+        // eslint-disable-next-line no-console
         console.warn(error);
       }
     }
-  }
+  },
 });
