@@ -1,6 +1,6 @@
 {
-  "name": "Discourse Atlassian StatusPage",
-  "about_url": null,
+  "name": "Status Page (Atlassian)",
+  "about_url": "https://meta.discourse.org/t/status-page-atlassian/176835",
   "license_url": null,
   "component": true
 }
