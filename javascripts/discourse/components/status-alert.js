@@ -1,5 +1,10 @@
 import Component from "@ember/component";
 const API_ENDPOINT = settings.status_endpoint;
+const IMPACT = {
+  minor: 0,
+  major: 1,
+  critical: 2
+};
 
 export default Component.extend({
   showStatus: null,
@@ -23,19 +28,26 @@ export default Component.extend({
         fetch(API_ENDPOINT)
           .then((response) => response.json())
           .then((data) => {
-            let { status } = data;
-            if (status.description !== "All Systems Operational") {
-              let statusMessage =
-                status.indicator.toLowerCase() === "minor"
-                  ? settings.minor_status_message
-                  : status.indicator.toLowerCase() === "major"
-                  ? settings.major_status_message
-                  : settings.critical_status_message;
-
-              this.set("statusMessage", statusMessage);
-              this.set("indicator", status.indicator.toLowerCase());
-              this.set("showStatus", true);
+            let { status, incidents } = data;
+            let maxImpact = "minor";
+            let currentStatusMessage = "";
+            console.log('### incidents', incidents);
+            if (!incidents.length) {
+              this.set("showStatus", false);
+              return;
             }
+            for(let incident of incidents) {
+              console.log('### incident', incident);
+              let incidentImpact = incident.impact;
+              console.log("check impact", {current: IMPACT[incidentImpact], max: IMPACT[maxImpact]})
+              if (IMPACT[incidentImpact] > IMPACT[maxImpact]) {
+                maxImpact = incidentImpact;
+                currentStatusMessage = incident.name;
+              }
+            }
+            this.set("statusMessage", currentStatusMessage);
+            this.set("indicator", maxImpact);
+            this.set("showStatus", true);
           });
       } catch (error) {
         // eslint-disable-next-line no-console
