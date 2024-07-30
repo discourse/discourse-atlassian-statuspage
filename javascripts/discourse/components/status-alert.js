@@ -31,15 +31,12 @@ export default Component.extend({
             let { status, incidents } = data;
             let maxImpact = "minor";
             let currentStatusMessage = "";
-            console.log('### incidents', incidents);
             if (!incidents.length) {
               this.set("showStatus", false);
               return;
             }
             for(let incident of incidents) {
-              console.log('### incident', incident);
               let incidentImpact = incident.impact;
-              console.log("check impact", {current: IMPACT[incidentImpact], max: IMPACT[maxImpact]})
               if (IMPACT[incidentImpact] > IMPACT[maxImpact]) {
                 maxImpact = incidentImpact;
                 currentStatusMessage = incident.name;
