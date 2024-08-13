@@ -29,19 +29,30 @@ export default Component.extend({
           .then((response) => response.json())
           .then((data) => {
             let { status, incidents } = data;
-            let maxImpact = "minor";
-            let currentStatusMessage = "";
+            
+            // if no incidents, show nothing
             if (!incidents.length) {
               this.set("showStatus", false);
               return;
             }
+
+            // we have at least one incident
+            // set default display to first incident
+            let maxImpact = incidents[0].impact;
+            let currentStatusMessage = incidents[0].name;
+
+            // check for higher impact incidents 
+            // in case there are multiple active
             for(let incident of incidents) {
+              console.log('### incident', {incident});
               let incidentImpact = incident.impact;
               if (IMPACT[incidentImpact] > IMPACT[maxImpact]) {
                 maxImpact = incidentImpact;
                 currentStatusMessage = incident.name;
               }
             }
+
+            // show status banner
             this.set("statusMessage", currentStatusMessage);
             this.set("indicator", maxImpact);
             this.set("showStatus", true);
