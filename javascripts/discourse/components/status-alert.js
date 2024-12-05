@@ -6,14 +6,14 @@ const IMPACT = {
   critical: 2
 };
 
-export default Component.extend({
-  showStatus: null,
-  statusText: null,
-  statusHref: null,
-  indicator: null,
+export default class StatusAlert extends Component {
+  showStatus;
+  statusText;
+  statusHref;
+  indicator;
 
   init() {
-    this._super(...arguments);
+    super.init(...arguments);
     this.set(
       "statusHref",
       settings.status_more_info_link.replace(/http(s)*:\/\//g, "")
@@ -62,5 +62,5 @@ export default Component.extend({
         console.warn(error);
       }
     }
-  },
-});
+  }
+}
