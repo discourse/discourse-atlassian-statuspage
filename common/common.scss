@@ -1,11 +1,14 @@
 .discourse-status-alert {
   width: 85%;
+
   &.indicator-minor {
     background-color: orange;
   }
+
   &.indicator-major {
     background-color: #e45735;
   }
+
   &.indicator-critical {
     background-color: #c63c1b;
   }
@@ -13,6 +16,7 @@
   padding: 1em;
   border-radius: 0.25em;
   border: 1px solid rgba(var(--primary-rgb), 0.25);
+
   a {
     color: var(--secondary);
     font-weight: 600;

@@ -1,4 +1,5 @@
 import Component from "@ember/component";
+
 const API_ENDPOINT = settings.status_endpoint;
 
 export default class StatusAlert extends Component {
@@ -29,8 +30,8 @@ export default class StatusAlert extends Component {
                 status.indicator.toLowerCase() === "minor"
                   ? settings.minor_status_message
                   : status.indicator.toLowerCase() === "major"
-                  ? settings.major_status_message
-                  : settings.critical_status_message;
+                    ? settings.major_status_message
+                    : settings.critical_status_message;
 
               this.set("statusMessage", statusMessage);
               this.set("indicator", status.indicator.toLowerCase());
