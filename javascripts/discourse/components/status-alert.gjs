@@ -44,4 +44,12 @@ export default class StatusAlert extends Component {
       }
     }
   }
+
+  <template>
+    {{#if this.showStatus}}
+      <div class="discourse-status-alert indicator-{{this.indicator}}">
+        <a href="https://{{this.statusHref}}">{{this.statusMessage}}</a>
+      </div>
+    {{/if}}
+  </template>
 }
